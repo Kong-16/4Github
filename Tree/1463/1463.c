@@ -1,3 +1,4 @@
+// 전체적으로 포인터에 대한 활용이 헷갈렸던 파트입니다.
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -6,8 +7,8 @@
 #include "BT.h"
 
 void MakeRecSubTree(BTreeNode* main, BTData data, int count,int* res) {
-	if (data == 1) {
-		if (*res > count)
+	if (data == 1) { //재귀함수 순서가 left끝까지 먼저 훑기때문에 count값이 실제 최솟값과 다를 수 있음.
+		if (*res > count) 
 			*res = count;
 		return;
 	}
@@ -36,14 +37,14 @@ void MakeRecSubTree(BTreeNode* main, BTData data, int count,int* res) {
 int main() {
 	int num,i;
 	int* res;
-	i = 10000;
-	res = &i;
+	i = 10000; //count가 10000보다 무조건 작을 것이라 판단. 정확한 횟수 모르겠어서 일케씀.
+	res = &i; // 이거 깔끔하게 쓰려면 어캄?
 
 	BTreeNode* bt = MakeBTreeNode();
 	
 	scanf("%d", &num);
 	SetData(bt, num);
-	MakeRecSubTree(bt, num, 0,res);
+	MakeRecSubTree(bt, num, 0,res); //여기 res값에 10000넣어도 작동?
 	
 	printf("%d", *res);
 	return 0;
@@ -53,7 +54,7 @@ void ShowIntData(int data) {
 	printf("%d", data);
 }
 
-
+// 만들다 실패한 재귀.
 /*
 int MLST(BTreeNode* main, BTData data,int count) {
 

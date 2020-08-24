@@ -141,6 +141,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="2592.c" />
+    <ClCompile Include="DLList.c" />
+    <ClCompile Include="LBStack.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DLList.h" />
+    <ClInclude Include="LBStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
